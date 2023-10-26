@@ -36,7 +36,23 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('surat-keterangan')->group(function(){
         Route::get('domisili', [SuratKeteranganController::class, 'domisili'])->name('sk.domisili');
-        Route::get('domisili-pdf', [SuratKeteranganController::class, 'domisiliPdf'])->name('sk.domisili.pdf');
+        // Route::get('domisili-pdf', [SuratKeteranganController::class, 'domisiliPdf'])->name('sk.domisili.pdf');
         Route::get('domisili/view', [SuratKeteranganController::class, 'domisiliPdfView'])->name('sk.domisili.pdf.view');
+        Route::prefix('tidak-mampu')->group(function(){
+            Route::get('/', [SuratKeteranganController::class, 'tidakMampu'])->name('sk.tidak-mampu');
+            Route::get('/view', [SuratKeteranganController::class, 'tidakMampuPdfView'])->name('sk.tidak-mampu.pdf.view');
+        });
+        Route::prefix('pindah')->group(function(){
+            Route::get('/', [SuratKeteranganController::class, 'pindah'])->name('sk.pindah');
+            Route::get('/view', [SuratKeteranganController::class, 'pindahPdfView'])->name('sk.pindah.pdf.view');
+        });
+        Route::prefix('izin-usaha')->group(function(){
+            Route::get('/', [SuratKeteranganController::class, 'izinUsaha'])->name('sk.izin-usaha');
+            Route::get('/view', [SuratKeteranganController::class, 'izinUsahaPdfView'])->name('sk.izin-usaha.pdf.view');
+        });
+        Route::prefix('penghasilan-orang-tua')->group(function(){
+            Route::get('/', [SuratKeteranganController::class, 'penghasilanOrangTua'])->name('sk.penghasilan-orangtua');
+            Route::get('/view', [SuratKeteranganController::class, 'penghasilanOrangTuaPdfView'])->name('sk.penghasilan-orangtua.pdf.view');
+        });
     });
 });

@@ -126,11 +126,12 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="{{ route('sk.domisili') }}"><i class="fa fa-circle-o"></i> Domisili</a></li>
-                            <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-                            <li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-                            <li><a href="../UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-                            <li><a href="../UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-                            <li><a href="../UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+                            <li><a href="{{ route('sk.tidak-mampu') }}"><i class="fa fa-circle-o"></i> Tidak Mampu</a></li>
+                            <li><a href="{{ route('sk.pindah') }}"><i class="fa fa-circle-o"></i> Pindah</a></li>
+                            <li><a href="{{ route('sk.izin-usaha') }}"><i class="fa fa-circle-o"></i> Izin Usaha</a></li>
+                            {{-- <li><a href="../UI/timeline.html"><i class="fa fa-circle-o"></i> Kematian</a></li>
+                            <li><a href="../UI/modals.html"><i class="fa fa-circle-o"></i> Kelahiran</a></li> --}}
+                            <li><a href="{{ route('sk.penghasilan-orangtua') }}"><i class="fa fa-circle-o"></i> Penghasilan Orang Tua</a></li>
                         </ul>
                     </li>
                 </ul>

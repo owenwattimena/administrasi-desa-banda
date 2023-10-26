@@ -2,6 +2,9 @@
 
 @section('head')
 <style>
+    iframe{
+        width: 100%;
+    }
     .mx-auto {
         margin-right: auto !important;
         margin-left: auto !important;
@@ -10,7 +13,7 @@
 </style>
 @endsection
 @section('title')
-Surat Keterangan Domisili
+Izin Usaha
 @endsection
 
 @section('content')
@@ -22,7 +25,7 @@ Surat Keterangan Domisili
 <div style="background-color: whitesmoke; padding-top:25px; padding-bottom:25px">
     <div class="row">
         <div class="col-md-12 text-center">
-            <iframe src="{{ route('sk.domisili.pdf.view') }}" frameborder="0" height="800" width="800px"></iframe>
+            <iframe src="{{ route('sk.izin-usaha.pdf.view') }}" frameborder="0" height="800"></iframe>
             {{-- <embed type="application/pdf" src="{{ route('admin.surat-pengantar.domisili-pdf') }}" height="500" width="100%"></embed> --}}
         </div>
     </div>
