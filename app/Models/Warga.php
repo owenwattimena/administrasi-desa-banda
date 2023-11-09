@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Warga extends Model
 {
@@ -21,11 +22,21 @@ class Warga extends Model
         'status_hubungan_keluarga',
         'agama',
         'pendidikan',
+        'status_perkawinan',
         'pekerjaan',
         'nama_ayah',
         'nama_ibu',
         'alamat',
-        'rw',
-        'rt',
+        'id_rt',
     ];
+
+    /**
+     * Get the rt associated with the Warga
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function rt(): HasOne
+    {
+        return $this->hasOne(RukunTetangga::class, 'id', 'id_rt');
+    }
 }

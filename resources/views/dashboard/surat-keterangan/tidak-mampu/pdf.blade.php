@@ -244,7 +244,8 @@
                 <br>
                 <br>
                 <br>
-                <p class="mt-5 mb-0">(................................................)</p>
+                <p class="mt-5 mb-0 text-center">{{ $pengaturan->nama_pejabat_negeri }}</p>
+                <p class="mb-0 mt-0 text-center">NIP. {{ $pengaturan->nip_pejabat_negeri }}</p>
                 {{-- <p>NIP.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <p> --}}
 

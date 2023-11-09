@@ -71,11 +71,11 @@
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
-                                    <div class="pull-left">
+                                    {{-- <div class="pull-left">
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
+                                    </div> --}}
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="{{ route('keluar') }}" class="btn btn-default btn-flat">Keluar</a>
                                     </div>
                                 </li>
                             </ul>
@@ -104,6 +104,19 @@
                             <span>Dashboard</span>
                         </a>
                     </li>
+                    @if (auth()->user()->role == 'admin')
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-list"></i> <span>Master</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="active"><a href="{{ route('master.rt') }}"><i class="fa fa-circle-o"></i> Rukun Tetangga (RT)</a></li>
+                            {{-- <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li> --}}
+                        </ul>
+                    </li>
                     <li>
                         <a href="{{ route('penduduk') }}">
                             <i class="fa fa-users"></i>
@@ -111,11 +124,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('pengaturan') }}">
                             <i class="fa fa-cog"></i>
                             <span>Pengaturan</span>
                         </a>
                     </li>
+                    @else
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-file"></i>
@@ -129,11 +143,14 @@
                             <li><a href="{{ route('sk.tidak-mampu') }}"><i class="fa fa-circle-o"></i> Tidak Mampu</a></li>
                             <li><a href="{{ route('sk.pindah') }}"><i class="fa fa-circle-o"></i> Pindah</a></li>
                             <li><a href="{{ route('sk.izin-usaha') }}"><i class="fa fa-circle-o"></i> Izin Usaha</a></li>
-                            {{-- <li><a href="../UI/timeline.html"><i class="fa fa-circle-o"></i> Kematian</a></li>
-                            <li><a href="../UI/modals.html"><i class="fa fa-circle-o"></i> Kelahiran</a></li> --}}
-                            <li><a href="{{ route('sk.penghasilan-orangtua') }}"><i class="fa fa-circle-o"></i> Penghasilan Orang Tua</a></li>
-                        </ul>
-                    </li>
+                            <li><a href="{{ route('sk.kematian') }}"><i class="fa fa-circle-o"></i> Kematian</a></li>
+                            <li><a href="{{ route('sk.belum-nikah') }}"><i class="fa fa-circle-o"></i> Belum Menikah</a></li>
+                            {{-- <li><a href="{{ route('sk.penghasilan-orangtua') }}"><i class="fa fa-circle-o"></i> Penghasilan Orang Tua</a>
+                    </li> --}}
+                </ul>
+                </li>
+                @endif
+
                 </ul>
             </section>
             <!-- /.sidebar -->
@@ -148,11 +165,11 @@
                 <h1>
                     @yield('title')
                 </h1>
-                <ol class="breadcrumb">
+                {{-- <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                     <li><a href="#">Examples</a></li>
                     <li class="active">Blank page</li>
-                </ol>
+                </ol> --}}
             </section>
 
             <!-- Main content -->

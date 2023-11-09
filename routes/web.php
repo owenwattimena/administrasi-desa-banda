@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PendudukController;
+use App\Http\Controllers\PengaturanController;
+use App\Http\Controllers\RukunTetanggaControler;
 use App\Http\Controllers\SuratKeteranganController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +31,13 @@ Route::post('/masuk', [AuthController::class, 'doLogin'])->name('login.do');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+
+    Route::prefix('master/rt')->group(function(){
+        Route::get('/', [RukunTetanggaControler::class, 'index'])->name('master.rt');
+        Route::post('/', [RukunTetanggaControler::class, 'create'])->name('master.rt.create');
+        Route::delete('/{id}', [RukunTetanggaControler::class, 'delete'])->name('master.rt.delete');
+    });
+
     Route::get('/penduduk', [PendudukController::class, 'index'])->name('penduduk');
     Route::get('/penduduk/{id}', [PendudukController::class, 'show'])->name('penduduk.show');
     Route::post('/penduduk/{id}/confirm', [PendudukController::class, 'confirm'])->name('penduduk.confirm');
@@ -50,9 +59,27 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/', [SuratKeteranganController::class, 'izinUsaha'])->name('sk.izin-usaha');
             Route::get('/view', [SuratKeteranganController::class, 'izinUsahaPdfView'])->name('sk.izin-usaha.pdf.view');
         });
+        Route::prefix('kematian')->group(function(){
+            Route::get('/', [SuratKeteranganController::class, 'kematian'])->name('sk.kematian');
+            Route::get('/view', [SuratKeteranganController::class, 'kematianPdfView'])->name('sk.kematian.pdf.view');
+        });
+        Route::prefix('belum-nikah')->group(function(){
+            Route::get('/', [SuratKeteranganController::class, 'belumNikah'])->name('sk.belum-nikah');
+            Route::get('/view', [SuratKeteranganController::class, 'belumNikahPdfView'])->name('sk.belum-nikah.pdf.view');
+        });
         Route::prefix('penghasilan-orang-tua')->group(function(){
             Route::get('/', [SuratKeteranganController::class, 'penghasilanOrangTua'])->name('sk.penghasilan-orangtua');
             Route::get('/view', [SuratKeteranganController::class, 'penghasilanOrangTuaPdfView'])->name('sk.penghasilan-orangtua.pdf.view');
         });
     });
+
+    Route::prefix('pengaturan')->group(function(){
+        Route::get('/', [PengaturanController::class, 'index'])->name('pengaturan');
+        Route::post('/', [PengaturanController::class, 'createOrUpdate'])->name('pengaturan.save');
+    });
+
+    Route::get('keluar', function(){
+        \Auth::logout();
+        return redirect()->route('home');
+    })->name('keluar');
 });

@@ -32,6 +32,12 @@ return [
         "Belum sekolah",
         "Tidak sekolah",
     ],
+    "status_perkawinan" => [
+        "Belum Kawin",
+        "Kawin",
+        "Cerai Hidup",
+        "Cerai Mati",
+    ],
     "pekerjaan" => [
         "Belum/Tidak bekerja",
         "Masiswa/Pelajar",
@@ -47,5 +53,14 @@ return [
         "Pegawai negeri",
         "Wiraswasta",
         "Pensiun",
-    ]
+    ],
+    "hari" => array(
+        'Sun' => 'Minggu',
+        'Mon' => 'Senin',
+        'Tue' => 'Selasa',
+        'Wed' => 'Rabu',
+        'Thu' => 'Kamis',
+        'Fri' => 'Jumat',
+        'Sat' => 'Sabtu'
+    )
 ];

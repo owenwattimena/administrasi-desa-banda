@@ -13,7 +13,7 @@
     /> --}}
     {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
-    <title>Surat Keterangan Izin Usaha</title>
+    <title>Surat Keterangan Penghasilan Orang Tua</title>
     <style>
         body {
             background-color: white;
@@ -130,7 +130,7 @@
     <hr>
     <ins>
         <h2 class="text-center" style="margin-bottom:0;">
-            SURAT KETERANGAN IZIN USAHA
+            SURAT KETERANGAN PENGHASILAN ORANG TUA
         </h2>
     </ins>
     <h4 class="text-center" style="margin-top:0;">NO. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /S.K.I.U/NA.R/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / {{ date('Y') }}</h4>
@@ -193,7 +193,8 @@
                     <br>
                     <br>
                     <br>
-                    <p class="mt-5 mb-0">(................................................)</p>
+                    <p class="mt-5 mb-0 text-center">{{ $pengaturan->nama_pejabat_negeri }}</p>
+                    <p class="mb-0 mt-0 text-center">NIP. {{ $pengaturan->nip_pejabat_negeri }}</p>
                     {{-- <p>NIP.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <p> --}}
 

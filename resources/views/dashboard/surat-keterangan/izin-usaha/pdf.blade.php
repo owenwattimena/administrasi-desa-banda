@@ -173,14 +173,14 @@
                 <tr>
                     <td class="label">Alamat Tempat Usaha</td>
                     <td class="separator">:</td>
-                    <td></td>
+                    <td>{{ $usaha['alamat_usaha'] }}</td>
                 </tr>
             </table>
         </div>
     </div>
 
     <p class="mt-3">
-        Adapun izin usaha diminta berkaitan dengan kelangsungan hidup yang bersangkutan, yakni Usaha ……………… di……….  Negeri Administratif Rajawali.
+        Adapun izin usaha diminta berkaitan dengan kelangsungan hidup yang bersangkutan, yakni Usaha {{ $usaha['nama_usaha'] }} di {{ $usaha['alamat_usaha'] }}.  Negeri Administratif Rajawali.
     </p>
     <p> Demikian Surat keterangan izin usaha ini di buat dan diberikan kepada yang bersangkutan untuk dipergunakan seperlunya.</p>
     <div class="text-right">
@@ -193,7 +193,8 @@
                     <br>
                     <br>
                     <br>
-                    <p class="mt-5 mb-0">(................................................)</p>
+                    <p class="mt-5 mb-0 text-center">{{ $pengaturan->nama_pejabat_negeri }}</p>
+                    <p class="mb-0 mt-0 text-center">NIP. {{ $pengaturan->nip_pejabat_negeri }}</p>
                     {{-- <p>NIP.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <p> --}}
 

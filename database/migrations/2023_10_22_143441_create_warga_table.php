@@ -24,12 +24,14 @@ return new class extends Migration
             $table->string('status_hubungan_keluarga');
             $table->string('agama');
             $table->string('pendidikan');
+            $table->string('status_perkawinan');
             $table->string('pekerjaan');
             $table->string('nama_ayah');
             $table->string('nama_ibu');
             $table->string('alamat');
-            $table->char('rw', 3);
-            $table->char('rt', 3);
+            // $table->char('rw', 3);
+            $table->unsignedBigInteger('id_rt');
+            $table->foreign('id_rt')->references('id')->on('rukun_tetangga');
             $table->timestamp('confirmed_at')->nullable();
             $table->timestamps();
         });

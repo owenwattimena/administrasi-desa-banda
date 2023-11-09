@@ -25,7 +25,7 @@ Penghasilan Orang Tua
 <div style="background-color: whitesmoke; padding-top:25px; padding-bottom:25px">
     <div class="row">
         <div class="col-md-12 text-center">
-            <iframe src="{{ route('sk.izin-usaha.pdf.view') }}" frameborder="0" height="800"></iframe>
+            <iframe src="{{ route('sk.penghasilan-orang-tua.pdf.view') }}" frameborder="0" height="800"></iframe>
             {{-- <embed type="application/pdf" src="{{ route('admin.surat-pengantar.domisili-pdf') }}" height="500" width="100%"></embed> --}}
         </div>
     </div>

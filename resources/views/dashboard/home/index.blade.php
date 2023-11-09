@@ -6,6 +6,8 @@ Dashboard
 
 @section('content')
 <div class="row">
+    @if (auth()->user()->role == 'admin')
+
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-aqua">
@@ -62,5 +64,14 @@ Dashboard
             {{-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> --}}
         </div>
     </div>
+    @else
+    <div class="col-md-12">
+        <div class="p-5 callout callout-info">
+            <h4>Hi, {{ auth()->user()->nama }}!</h4>
+            <p>Selamat datang!</p>
+        </div>
+    </div>
+    @endif
+
 </div>
 @endsection

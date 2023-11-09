@@ -15,10 +15,11 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
     <title>Surat Keterangan Pindah</title>
     <style>
-        body{
+        body {
             background-color: white;
             /* padding: 25px; */
         }
+
         * {
             font-family: 'Times New Roman', Times, serif, Helvetica, sans-serif !important;
             font-size: 16px !important;
@@ -87,21 +88,27 @@
             margin-right: auto !important;
             margin-left: auto !important;
         }
-        .mb-0{
-            margin-bottom: 0!important;
+
+        .mb-0 {
+            margin-bottom: 0 !important;
         }
-        .mt-0{
-            margin-top: 0!important;
+
+        .mt-0 {
+            margin-top: 0 !important;
         }
-        .text-right{
+
+        .text-right {
             text-align: right;
             float: right;
         }
 
-        #daftar-keluarga, #daftar-keluarga th, #daftar-keluarga td{
-             border: 1px solid;
-             border-collapse: collapse;
+        #daftar-keluarga,
+        #daftar-keluarga th,
+        #daftar-keluarga td {
+            border: 1px solid;
+            border-collapse: collapse;
         }
+
     </style>
 </head>
 <body class="px-5">
@@ -183,64 +190,66 @@
                     <td class="separator">:</td>
                     <td>{{ \Auth::user()->warga->alamat }}</td>
                 </tr>
-                <tr>
-                    <td class="label" colspan="3">Pindah Ke:</td>
-                </tr>
+
+            </table>
+            <p>&nbsp;&nbsp;&nbsp;Pindah Ke:</p>
+            <table id="table" class="mx-auto">
                 <tr>
                     <td class="label">Desa/Kelurahan</td>
                     <td class="separator">:</td>
-                    <td></td>
+                    <td>{{ $alamat_pindah['desa_kelurahan'] }}</td>
                 </tr>
                 <tr>
                     <td class="label">RT</td>
                     <td class="separator">:</td>
-                    <td></td>
+                    <td>{{ $alamat_pindah['rt'] }}</td>
                 </tr>
                 <tr>
                     <td class="label">Kecamatan</td>
                     <td class="separator">:</td>
-                    <td></td>
+                    <td>{{ $alamat_pindah['kecamatan'] }}</td>
                 </tr>
                 <tr>
                     <td class="label">Kabupaten/Kota</td>
                     <td class="separator">:</td>
-                    <td></td>
+                    <td>{{ $alamat_pindah['kabupaten_kota'] }}</td>
                 </tr>
                 <tr>
                     <td class="label">Provinsi</td>
                     <td class="separator">:</td>
-                    <td></td>
+                    <td>{{ $alamat_pindah['provinsi'] }}</td>
                 </tr>
                 <tr>
                     <td class="label">Pada Tanggal</td>
                     <td class="separator">:</td>
-                    <td></td>
+                    <td>{{ $alamat_pindah['tanggal'] }}</td>
                 </tr>
                 <tr>
                     <td class="label">Alasan Pindah</td>
                     <td class="separator">:</td>
-                    <td></td>
+                    <td>{{ $alamat_pindah['alasan_pindah'] }}</td>
                 </tr>
             </table>
         </div>
     </div>
     <div class="text-right">
-    <table class="table text-center font-weight-bold mt-5" id="sign">
-        <tr>
-            <td>
-                <p class="pb-3 mt-0 mb-0">DIKERLUARKAN DI : RAJAWALI</p>
-                <p class="pb-3 mt-0 mb-0">PADA TANGGAL  :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ date('Y') }} </p>
-                <p class="mb-0">KEPALA PEMERINTAH NEGERI<br>ADMINISTRATIF RAJAWALI</p>
-                <br>
-                <br>
-                <br>
-                <p class="mt-5 mb-0">(................................................)</p>
-                {{-- <p>NIP.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <table class="table text-center font-weight-bold mt-5" id="sign">
+            <tr>
+                <td>
+                    <p class="pb-3 mt-0 mb-0">DIKERLUARKAN DI : RAJAWALI</p>
+                    <p class="pb-3 mt-0 mb-0">PADA TANGGAL :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ date('Y') }} </p>
+                    <p class="mb-0">KEPALA PEMERINTAH NEGERI<br>ADMINISTRATIF RAJAWALI</p>
+                    <br>
+                    <br>
+                    <br>
+                    <p class="mt-5 mb-0 text-center">{{ $pengaturan->nama_pejabat_negeri }}</p>
+                    <p class="mb-0 mt-0 text-center">NIP. {{ $pengaturan->nip_pejabat_negeri }}</p>
+                    {{-- <p>NIP.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <p> --}}
 
-            </td>
-        </tr>
-    </table>
+                </td>
+            </tr>
+        </table>
     </div>
     {{--
     <table class="table text-center font-weight-bold mt-5" id="sign">

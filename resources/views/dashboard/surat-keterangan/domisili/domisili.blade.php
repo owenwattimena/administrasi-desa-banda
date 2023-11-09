@@ -13,7 +13,7 @@
 </style>
 @endsection
 @section('title')
-Surat Keterangan Domisili
+Domisili
 @endsection
 
 @section('content')
@@ -22,6 +22,7 @@ Surat Keterangan Domisili
 {{-- <div class="clearfix" style="margin-bottom: 10px">
     <a href="{{ route('sk.domisili.pdf.view') }}" class="btn btn-primary btn-sm pull-right"><i class="fa fa-download"></i> Unduh</a>
 </div> --}}
+
 <div style="background-color: whitesmoke; padding-top:25px; padding-bottom:25px">
     <div class="row">
         <div class="col-md-12 text-center">

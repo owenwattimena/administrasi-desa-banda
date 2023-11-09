@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\AlertFormatter;
+use App\Models\RukunTetangga;
 use App\Models\User;
 use App\Models\Warga;
 use Auth;
@@ -14,7 +15,8 @@ class AuthController extends Controller
 {
     public function register()
     {
-        return view('auth.register');
+        $data['rt'] = RukunTetangga::all();
+        return view('auth.register', $data);
     }
 
     public function doRegister(Request $request)
@@ -30,12 +32,12 @@ class AuthController extends Controller
                 'status_hubungan_keluarga' => 'required',
                 'agama' => 'required',
                 'pendidikan' => 'required',
+                'status_perkawinan' => 'required',
                 'pekerjaan' => 'required',
                 'nama_ayah' => 'required',
                 'nama_ibu' => 'required',
                 'alamat' => 'required',
-                'rw' => 'required',
-                'rt' => 'required',
+                'id_rt' => 'required',
                 'password' => 'required',
             ]
         );
@@ -50,7 +52,7 @@ class AuthController extends Controller
                     DB::rollBack();
                     return redirect()->back()->with(AlertFormatter::danger('Proses registrasi gagal. Mohon periksa kembali data yang anda masukan!'));
                 }
-                return redirect()->back()->with(AlertFormatter::success('Proses registrasi berhasil. Anda akan menerima email apabila telah di verifikasi!'));
+                return redirect()->back()->with(AlertFormatter::success('Proses registrasi berhasil. Data anda akan segera di verifikasi!'));
             }
             return redirect()->back()->with(AlertFormatter::danger('Proses registrasi gagal. Mohon periksa kembali data yang anda masukan!'));
         });
@@ -79,6 +81,14 @@ class AuthController extends Controller
 
         if(Auth::attempt($data, $remember))
         {
+            $user = Auth::user();
+            if($user->role == 'warga')
+            {
+                if($user->warga->confirmed_at == null)
+                {
+                    return redirect()->back()->with(AlertFormatter::danger('Login gagal. Data anda belum dikonfirmasi oleh admin.'));
+                }
+            }
             return redirect()->intended('/');
         }
         return redirect()->back()->with(AlertFormatter::danger('Username atau Password salah'));

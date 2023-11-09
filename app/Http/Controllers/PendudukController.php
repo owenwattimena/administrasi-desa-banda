@@ -3,16 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\AlertFormatter;
+use App\Models\RukunTetangga;
 use App\Models\User;
 use App\Models\Warga;
+use Barryvdh\DomPDF\Facade\Pdf;
 use DB;
 use Illuminate\Http\Request;
 
 class PendudukController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $data['penduduk'] = Warga::get();
+        $data['rt'] = RukunTetangga::all();
+        $idRt = $request->query('rt');
+        if($idRt)
+        {
+            if($idRt > 0)
+            {
+                $data['penduduk'] = Warga::where('id_rt', $idRt)->get();
+            }else{
+                $data['penduduk'] = Warga::get();
+            }
+        }
+        if($request->query('cetak'))
+        {
+            $pdf = Pdf::loadView('dashboard.penduduk.pdf', $data)->setPaper('a4', 'landscape');
+            return $pdf->stream('data-penduduk.pdf');
+        }
         return view('dashboard.penduduk.index', $data);
     }
 

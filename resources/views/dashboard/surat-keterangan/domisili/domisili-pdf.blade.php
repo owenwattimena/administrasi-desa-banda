@@ -134,24 +134,29 @@
                     <td>{{ \Auth::user()->warga->nama }}</td>
                 </tr>
                 <tr>
+                    <td class="label">NIK</td>
+                    <td class="separator">:</td>
+                    <td>{{ \Auth::user()->warga->nik }}</td>
+                </tr>
+                <tr>
                     <td class="label">Jenis Kelamin</td>
                     <td class="separator">:</td>
                     <td>{{ \Auth::user()->warga->jenis_kelamin }}</td>
                 </tr>
                 <tr>
-                    <td class="label">Tempat, tgl, lhr</td>
+                    <td class="label">TTL</td>
                     <td class="separator">:</td>
                     <td>{{ \Auth::user()->warga->tempat_lahir }}, {{ \Auth::user()->warga->tanggal_lahir }}</td>
-                </tr>
-                <tr>
-                    <td class="label">Kewarganegaraan</td>
-                    <td class="separator">:</td>
-                    <td>Indonesia</td>
                 </tr>
                 <tr>
                     <td class="label">Agama</td>
                     <td class="separator">:</td>
                     <td>{{ ucwords(\Auth::user()->warga->agama) }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Status Perkawinan</td>
+                    <td class="separator">:</td>
+                    <td>{{ ucwords(\Auth::user()->warga->status_perkawinan) }}</td>
                 </tr>
                 <tr>
                     <td class="label">Pekerjaan</td>
@@ -163,16 +168,52 @@
                     <td class="separator">:</td>
                     <td>{{ \Auth::user()->warga->alamat }}</td>
                 </tr>
+                <tr>
+                    <td class="label">Kewarganegaraan</td>
+                    <td class="separator">:</td>
+                    <td>Indonesia</td>
+                </tr>
             </table>
         </div>
     </div>
     <p class="mt-3">
-        Orang tersebut diatas, adalah benar-benar warga kami dan berdomisili di RT.{{ auth()->user()->warga->rt }} RW.{{ auth()->user()->warga->rw }} Negeri Administratif Rajawali Kecamatan Banda Kabupaten Maluku Tengah.
+        Adalah benar yang bersangkutan diatas penduduk Negeri Administratif Rajawali, Kecamatan Banda yang bersangkutan diatas berdomisili pada alamat :
     </p>
+    <div class="row">
+        <div class="col-12">
+            <table id="table" class="mx-auto">
+                <tr>
+                    <td class="label">RT/RW</td>
+                    <td class="separator">:</td>
+                    <td>{{ auth()->user()->warga->rt }}/{{ auth()->user()->warga->rw }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Desa/Kelurahan</td>
+                    <td class="separator">:</td>
+                    <td>Negeri Administrasi Rajawali</td>
+                </tr>
+                <tr>
+                    <td class="label">Kecamatan</td>
+                    <td class="separator">:</td>
+                    <td>Banda</td>
+                </tr>
+                <tr>
+                    <td class="label">Kabupaten</td>
+                    <td class="separator">:</td>
+                    <td>Maluku Tengah</td>
+                </tr>
+                <tr>
+                    <td class="label">Provinsi</td>
+                    <td class="separator">:</td>
+                    <td>Maluku</td>
+                </tr>
+            </table>
+        </div>
+    </div>
     {{-- <p>Demikian surat keterangan ini dibuat, untuk dapat dipergunakan sebagaimana mestinya.</p>
     <p class="text-center">.................................................................................................</p> --}}
     <p>
-        Demikian surat keterangan ini dibuat dan diberikan kepada yang bersangkutan untuk dipergunakan seperlunya.
+        Demikian surat keterangan ini dibuat dan diberikan kepada yang bersangkutan untuk dipergunakan sebagaimana mestinnya.
     </p>
 
     {{-- <p class="text-right"><strong>
@@ -191,7 +232,8 @@
                 <br>
                 <br>
                 <br>
-                <p class="mt-5 mb-0">(................................................)</p>
+                <p class="mt-5 mb-0 text-center">{{ $pengaturan->nama_pejabat_negeri }}</p>
+                <p class="mb-0 mt-0 text-center">NIP. {{ $pengaturan->nip_pejabat_negeri }}</p>
                 {{-- <p>NIP.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <p> --}}
 

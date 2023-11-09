@@ -128,6 +128,16 @@
                             </div>
                         </div>
                         <div class="col-md-12">
+                            <label for="pekerjaan">Status Perkawinan</label>
+                            <div class="form-group has-feedback">
+                                <select class="form-control" name="status_perkawinan">
+                                    @foreach (config('constant.status_perkawinan') as $item)
+                                    <option value="{{ $item }}">{{ $item }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
                             <label for="pekerjaan">Pekerjaan</label>
                             <div class="form-group has-feedback">
                                 <select class="form-control" name="pekerjaan">
@@ -166,16 +176,14 @@
                                 <input type="text" class="form-control" placeholder="Masukan Alamat" name="alamat">
                             </div>
                         </div>
-                        <div class="col-md-2">
-                            <label for="rw">RW</label>
+                        <div class="col-md-4">
+                            <label for="rw">RT</label>
                             <div class="form-group has-feedback">
-                                <input type="text" class="form-control" placeholder="Masukan RW" name="rw">
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <label for="rt">RT</label>
-                            <div class="form-group has-feedback">
-                                <input type="text" class="form-control" placeholder="Masukan RT" name="rt">
+                                <select type="text" class="form-control" name="id_rt">
+                                    @foreach ($rt as $item)
+                                        <option value="{{ $item->id }}">{{ $item->rt }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-12">

@@ -10,10 +10,32 @@ Penduduk
 @section('content')
 <div class="box">
     <div class="box-header">
-        <h3 class="box-title">Data Table With Full Features</h3>
+        <h3 class="box-title">Data Penduduk</h3>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
+
+        <div class="card">
+            <div class="card-body">
+                <form action="" method="get">
+                    <div class="row">
+                        <div class="form-group col-md-3 has-feedback">
+                            <select type="text" class="form-control" name="rt">
+                                <option value="0" {{ request()->query('rt') == 0 ? 'selected' : '' }}>Semua RT</option>
+                                @foreach ($rt as $item)
+                                <option value="{{ $item->id }}" {{ request()->query('rt') == $item->id ? 'selected' : '' }}>{{ $item->rt }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3 has-feedback">
+                            <button type="submit" name="filter" value="filter" class="btn btn-success">Filter</button>
+                            <button type="submit" name="cetak" value="cetak" class="btn btn-danger"> <i class="fa fa-file"></i> Cetak</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -23,6 +45,7 @@ Penduduk
                     <th>Nama</th>
                     <th>TTL</th>
                     <th>Jenis Kelamin</th>
+                    <th>RT</th>
                     <th>Dikonfirmasi Pada</th>
                     <th>Aksi</th>
                 </tr>
@@ -36,6 +59,7 @@ Penduduk
                     <td>{{ $item->nama }}</td>
                     <td>{{ $item->tempat_lahir }}, {{ $item->tanggal_lahir }}</td>
                     <td>{{ $item->jenis_kelamin }}</td>
+                    <td>{{ $item->rt->rt }}</td>
                     @if ($item->confirmed_at != null)
                     <td>{{ $item->confirmed_at }}</td>
                     @else
@@ -61,16 +85,17 @@ Penduduk
 <script src="{{ asset('assets') }}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="{{ asset('assets') }}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script>
-    $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
+    $(function() {
+        $('#example1').DataTable()
+        $('#example2').DataTable({
+            'paging': true
+            , 'lengthChange': false
+            , 'searching': false
+            , 'ordering': true
+            , 'info': true
+            , 'autoWidth': false
+        })
     })
-  })
+
 </script>
 @endsection

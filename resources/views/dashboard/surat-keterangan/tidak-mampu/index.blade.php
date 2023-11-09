@@ -13,7 +13,7 @@
 </style>
 @endsection
 @section('title')
-Surat Tidak Mampu
+Kurang Mampu
 @endsection
 
 @section('content')

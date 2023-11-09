@@ -26,6 +26,20 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <style>
+        body{
+            background-image: url("{{ asset('assets/dist/img/banda.jpg') }}")!important;
+            background-position: center!important;
+            background-repeat: no-repeat!important;
+            background-size: cover!important;
+        }
+        .register-logo a{
+            font-weight: bold!important;
+            color: whitesmoke!important;
+            text-shadow: 5px 3px 5px black;
+        }
+    </style>
 </head>
 <body class="hold-transition register-page">
     <div class="register-box">
@@ -38,14 +52,14 @@
             @if(session('alert'))
             <div class="alert alert-{{ session('alert')['type'] }} alert-dismissible callout">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-check"></i> {{ session('alert')['type'] }}!</h4>
+                <h4><i class="icon fa fa-check"></i> {{ Str::upper(session('alert')['type']) }}!</h4>
                 {{ session('alert')['message'] }}
             </div>
             @endif
             <form action="{{ route('login.do') }}" method="post">
                 @csrf
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" placeholder="Username" name="username">
+                    <input type="text" class="form-control" placeholder="Username/NIK" name="username">
                     <span class="glyphicon glyphicon-card form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
